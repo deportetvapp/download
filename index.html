@@ -1,70 +1,311 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <meta charset="utf-8">
-    <title>Deporte Total TV</title>
 
-    <style>
-        body{
-            background:#111111;
-            color:white;
-            font-family:sans-serif;
-            text-align:center;
-            margin:0;
-            padding:30px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-        h1{
-            margin-top:20px;
-        }
+<title>Deporte Total TV</title>
 
-        .download-btn{
-            display:inline-block;
-            margin-top:25px;
-            padding:15px 30px;
-            background:#1DB954;
-            color:white;
-            text-decoration:none;
-            border-radius:12px;
-            font-size:20px;
-            font-weight:bold;
-        }
+<style>
 
-        .video-container{
-            margin-top:40px;
-            display:flex;
-            justify-content:center;
-        }
-    </style>
+:root{
+    --espn-red:#E10600;
+    --green:#1DB954;
+    --bg:#050505;
+    --text:#ffffff;
+    --text-secondary:#bdbdbd;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    overflow-x:hidden;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:
+    Inter,
+    Arial,
+    sans-serif;
+}
+
+/* HERO */
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:40px 20px;
+
+    background:
+    radial-gradient(
+        circle at center,
+        #1a1a1a 0%,
+        #090909 60%,
+        #000000 100%
+    );
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:min(500px,80vw);
+    height:min(500px,80vw);
+
+    border-radius:50%;
+
+    background:
+    rgba(225,6,0,.08);
+
+    filter:blur(80px);
+
+    z-index:0;
+}
+
+.container{
+
+    width:100%;
+    max-width:1200px;
+
+    margin:auto;
+
+    position:relative;
+    z-index:2;
+
+    text-align:center;
+}
+
+/* FRANJA MUNDIAL */
+
+.worldcup-banner{
+
+    display:inline-block;
+
+    background:#297a52;
+
+    color:white;
+
+    font-weight:800;
+
+    font-size:14px;
+
+    letter-spacing:.5px;
+
+    padding:12px 22px;   
+
+    margin-bottom:25px;
+
+    box-shadow:
+    0 10px 25px rgba(225,6,0,.35);
+}
+
+/* TITULO */
+
+.brand{
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-bottom:20px;
+}
+
+.brand h1{
+
+    color:var(--espn-red);
+
+    font-size:
+    clamp(2rem,7vw,5rem);
+
+    font-weight:900;
+
+    line-height:1;
+
+    letter-spacing:-2px;
+
+    text-shadow:
+    0 0 15px rgba(225,6,0,.25);
+}
+
+/* TEXTO */
+
+.hero p{
+
+    color:var(--text-secondary);
+
+    font-size:
+    clamp(1rem,2vw,1.25rem);
+
+    margin-bottom:35px;
+}
+
+/* IMAGEN */
+
+.hero-image{
+
+    margin-top:40px;
+    margin-bottom:40px;
+}
+
+.hero-image img{
+
+    display:block;
+
+    width:100%;
+    max-width:1000px;
+
+    height:auto;
+
+    margin:auto;
+
+    filter:
+    drop-shadow(
+        0 25px 50px rgba(0,0,0,.55)
+    );
+}
+
+/* BOTON */
+
+.download-btn{
+
+    display:inline-block;
+
+    background:var(--green);
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    padding:18px 36px;
+
+    border-radius:999px;
+
+    transition:.25s;
+
+    font-size:1rem;
+}
+
+.download-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+    0 12px 30px rgba(29,185,84,.35);
+}
+
+/* FOOTER */
+
+footer{
+
+    text-align:center;
+
+    padding:25px;
+
+    color:#777;
+
+    border-top:
+    1px solid rgba(255,255,255,.05);
+}
+
+/* MOBILE */
+
+@media (max-width:768px){
+
+    .hero{
+        padding:30px 15px;
+    }
+
+    .download-btn{
+
+        width:100%;
+        max-width:320px;
+    }
+
+    .hero-image{
+        margin-top:30px;
+        margin-bottom:30px;
+    }
+
+    .worldcup-banner{
+
+        font-size:12px;
+
+        padding:10px 16px;
+
+        width:100%;
+        max-width:320px;
+    }
+}
+
+</style>
+
 </head>
 
 <body>
 
-    <h1>Deporte Total TV</h1>
+<section class="hero">
 
-    <p>
-        Todos los eventos deportivos en vivo en tu móvil
-    </p>
+    <div class="container">
 
-    <a class="download-btn"
-       href="https://drive.google.com/file/d/1yFsTuP-F7GBeWzO9rz2OUoSRwiVSVmCY/view?usp=sharing">
-       Descargar APK
-    </a>
+        <div class="worldcup-banner">
+            ⚽🏆 TODOS LOS PARTIDOS DEL MUNDIAL 2026 EN VIVO 🔥
+        </div>
 
-    <div class="video-container">
+        <div class="brand">
 
-        <blockquote class="tiktok-embed"
-            cite="https://www.tiktok.com/@yurii_ivh/video/7614472334610615574"
-            data-video-id="7614472334610615574"
-            style="max-width: 325px; min-width: 325px;">
+            <h1> Deporte Total TV </h1>
 
-            <section></section>
+        </div>
 
-        </blockquote>
+        <p>
+            Todos los eventos deportivos en vivo en tu móvil ⚽🏀🎾🥊🏆🍿😎
+        </p>
+
+        <div class="hero-image">
+
+            <img
+                src="app-preview.png"
+                alt="Deporte Total TV">
+
+        </div>
+
+        <a
+            class="download-btn"
+            href="https://drive.google.com/file/d/1yFsTuP-F7GBeWzO9rz2OUoSRwiVSVmCY/view?usp=sharing">
+
+            Descargar App (última versión)
+
+        </a>
 
     </div>
 
-    <script async src="https://www.tiktok.com/embed.js"></script>
+</section>
+
+<footer>
+    © 2025 Deporte Total TV
+</footer>
 
 </body>
 </html>
