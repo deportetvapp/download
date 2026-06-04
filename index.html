@@ -32,10 +32,7 @@ body{
 body{
     background:var(--bg);
     color:var(--text);
-    font-family:
-    Inter,
-    Arial,
-    sans-serif;
+    font-family:Arial,sans-serif;
 }
 
 /* HERO */
@@ -69,8 +66,8 @@ body{
 
     position:absolute;
 
-    width:min(500px,80vw);
-    height:min(500px,80vw);
+    width:500px;
+    height:500px;
 
     border-radius:50%;
 
@@ -89,99 +86,116 @@ body{
 
     margin:auto;
 
+    text-align:center;
+
     position:relative;
     z-index:2;
-
-    text-align:center;
 }
 
-/* FRANJA MUNDIAL */
+/* FRANJA */
 
 .worldcup-banner{
 
-    display:inline-block;
+    width:100%;
 
-    background:#297a52;
+    background:#169b45;
 
     color:white;
 
-    font-weight:800;
+    font-weight:700;
 
     font-size:14px;
 
-    letter-spacing:.5px;
-
-    padding:12px 22px;   
+    padding:10px 15px;
 
     margin-bottom:25px;
 
-    box-shadow:
-    0 10px 25px rgba(225,6,0,.35);
+    text-align:center;
+
+    letter-spacing:.5px;
 }
 
 /* TITULO */
 
-.brand{
+h1{
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    margin-bottom:20px;
-}
-
-.brand h1{
-
-    color:var(--espn-red);
+    color:#E10600;
 
     font-size:
-    clamp(2rem,7vw,5rem);
+    clamp(2.2rem,7vw,5rem);
+
+    margin-bottom:15px;
 
     font-weight:900;
-
-    line-height:1;
-
-    letter-spacing:-2px;
-
-    text-shadow:
-    0 0 15px rgba(225,6,0,.25);
 }
 
-/* TEXTO */
+p{
 
-.hero p{
-
-    color:var(--text-secondary);
+    color:#bdbdbd;
 
     font-size:
     clamp(1rem,2vw,1.25rem);
 
-    margin-bottom:35px;
+    margin-bottom:30px;
 }
 
-/* IMAGEN */
+/* DESKTOP IMAGE */
 
 .hero-image{
 
-    margin-top:40px;
-    margin-bottom:40px;
+    width:100%;
 }
 
 .hero-image img{
 
-    display:block;
-
     width:100%;
     max-width:1000px;
 
-    height:auto;
+    display:block;
 
     margin:auto;
+}
 
-    filter:
-    drop-shadow(
-        0 25px 50px rgba(0,0,0,.55)
-    );
+/* MOBILE CAROUSEL */
+
+.mobile-slider{
+
+    display:none;
+
+    overflow-x:auto;
+
+    scroll-snap-type:x mandatory;
+
+    gap:18px;
+
+    padding:10px 0 10px 20px;
+
+    -webkit-overflow-scrolling:touch;
+
+    scrollbar-width:none;
+}
+
+.mobile-slider::-webkit-scrollbar{
+    display:none;
+}
+
+.slide{
+
+    flex:0 0 75%;
+
+    scroll-snap-align:start;
+}
+
+.slide img{
+
+    width:100%;
+
+    display:block;
+
+    border-radius:24px;
+
+    box-shadow:
+    0 20px 40px rgba(0,0,0,.45);
 }
 
 /* BOTON */
@@ -190,21 +204,21 @@ body{
 
     display:inline-block;
 
-    background:var(--green);
+    background:#1DB954;
 
     color:white;
 
     text-decoration:none;
 
-    font-weight:700;
+    font-weight:bold;
 
-    padding:18px 36px;
+    padding:18px 34px;
 
     border-radius:999px;
 
-    transition:.25s;
+    margin-top:35px;
 
-    font-size:1rem;
+    transition:.2s;
 }
 
 .download-btn:hover{
@@ -212,7 +226,7 @@ body{
     transform:translateY(-2px);
 
     box-shadow:
-    0 12px 30px rgba(29,185,84,.35);
+    0 10px 25px rgba(29,185,84,.35);
 }
 
 /* FOOTER */
@@ -221,12 +235,9 @@ footer{
 
     text-align:center;
 
-    padding:25px;
-
     color:#777;
 
-    border-top:
-    1px solid rgba(255,255,255,.05);
+    padding:25px;
 }
 
 /* MOBILE */
@@ -234,7 +245,15 @@ footer{
 @media (max-width:768px){
 
     .hero{
-        padding:30px 15px;
+        padding:25px 15px;
+    }
+
+    .hero-image{
+        display:none;
+    }
+
+    .mobile-slider{
+        display:flex;
     }
 
     .download-btn{
@@ -243,19 +262,12 @@ footer{
         max-width:320px;
     }
 
-    .hero-image{
-        margin-top:30px;
-        margin-bottom:30px;
+    .worldcup-banner{
+        font-size:12px;
     }
 
-    .worldcup-banner{
-
-        font-size:12px;
-
-        padding:10px 16px;
-
-        width:100%;
-        max-width:320px;
+    .slide{
+        flex:0 0 75%;
     }
 }
 
@@ -273,21 +285,37 @@ footer{
             ⚽🏆 TODOS LOS PARTIDOS DEL MUNDIAL 2026 EN VIVO 🔥
         </div>
 
-        <div class="brand">
-
-            <h1> Deporte Total TV </h1>
-
-        </div>
+        <h1>Deporte Total TV</h1>
 
         <p>
-            Todos los eventos deportivos en vivo en tu móvil ⚽🏀🎾🥊🏆🍿😎
+            Todos los eventos deportivos en vivo en tu móvil ⚽🏀🎾🥊🏆🔥
         </p>
+
+        <!-- DESKTOP -->
 
         <div class="hero-image">
 
             <img
                 src="app-preview.png"
                 alt="Deporte Total TV">
+
+        </div>
+
+        <!-- MOBILE -->
+
+        <div class="mobile-slider">
+
+            <div class="slide">
+                <img src="uno.png" alt="Agenda">
+            </div>
+
+            <div class="slide">
+                <img src="dos.png" alt="Canales">
+            </div>
+
+            <div class="slide">
+                <img src="tres.png" alt="Partidos">
+            </div>
 
         </div>
 
