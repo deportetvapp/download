@@ -149,53 +149,11 @@ p{
 .hero-image img{
 
     width:100%;
-    max-width:1000px;
+    max-width:350px;
 
     display:block;
 
     margin:auto;
-}
-
-/* MOBILE CAROUSEL */
-
-.mobile-slider{
-
-    display:none;
-
-    overflow-x:auto;
-
-    scroll-snap-type:x mandatory;
-
-    gap:18px;
-
-    padding:10px 0 10px 20px;
-
-    -webkit-overflow-scrolling:touch;
-
-    scrollbar-width:none;
-}
-
-.mobile-slider::-webkit-scrollbar{
-    display:none;
-}
-
-.slide{
-
-    flex:0 0 75%;
-
-    scroll-snap-align:start;
-}
-
-.slide img{
-
-    width:100%;
-
-    display:block;
-
-    border-radius:24px;
-
-    box-shadow:
-    0 20px 40px rgba(0,0,0,.45);
 }
 
 /* BOTON */
@@ -248,14 +206,6 @@ footer{
         padding:25px 15px;
     }
 
-    .hero-image{
-        display:none;
-    }
-
-    .mobile-slider{
-        display:flex;
-    }
-
     .download-btn{
 
         width:100%;
@@ -264,10 +214,6 @@ footer{
 
     .worldcup-banner{
         font-size:12px;
-    }
-
-    .slide{
-        flex:0 0 75%;
     }
 }
 
@@ -287,28 +233,27 @@ footer{
 
         <h1>Beborro TV</h1>
 
-        <p>
-            <pre>
-Catalogo:
-01 Capital Federal : 11
-02 Interior        : 43
-03 Stream          : 3
-04 Internacional   : 20
-05 Infantil        : 24
-06 Animación Adulta: 44
-07 Cine            : 76
-09 Novelas         : 5
-10 Documentales    : 23
-11 Música          : 24
-12 Deportes        : 13
-13 Lifestyle       : 11
-14 Religioso       : 12
-15 Radio           : 15
-16 XXX             : 1
-----------------------
-Total             : 325
-</pre>
-        </p>
+        <div style="display:inline-block; text-align:center; margin:0 auto 30px auto; color:#bdbdbd; font-size:clamp(0.85rem,1.5vw,1rem);">
+            <div style="font-weight:bold; margin-bottom:10px; color:#fff;">Catálogo</div>
+            <table style="border-collapse:collapse; margin:0 auto;">
+                <tr><td style="padding:2px 15px 2px 0; text-align:left;">01 Capital Federal</td><td style="padding:2px 0 2px 0;">11</td></tr>
+                <tr><td style="padding:2px 15px 2px 0; text-align:left;">02 Interior</td><td style="padding:2px 0 2px 0;">43</td></tr>
+                <tr><td style="padding:2px 15px 2px 0; text-align:left;">03 Stream</td><td style="padding:2px 0 2px 0;">3</td></tr>
+                <tr><td style="padding:2px 15px 2px 0; text-align:left;">04 Internacional</td><td style="padding:2px 0 2px 0;">20</td></tr>
+                <tr><td style="padding:2px 15px 2px 0; text-align:left;">05 Infantil</td><td style="padding:2px 0 2px 0;">24</td></tr>
+                <tr><td style="padding:2px 15px 2px 0; text-align:left;">06 Animación Adulta</td><td style="padding:2px 0 2px 0;">44</td></tr>
+                <tr><td style="padding:2px 15px 2px 0; text-align:left;">07 Cine</td><td style="padding:2px 0 2px 0;">76</td></tr>
+                <tr><td style="padding:2px 15px 2px 0; text-align:left;">09 Novelas</td><td style="padding:2px 0 2px 0;">5</td></tr>
+                <tr><td style="padding:2px 15px 2px 0; text-align:left;">10 Documentales</td><td style="padding:2px 0 2px 0;">23</td></tr>
+                <tr><td style="padding:2px 15px 2px 0; text-align:left;">11 Música</td><td style="padding:2px 0 2px 0;">24</td></tr>
+                <tr><td style="padding:2px 15px 2px 0; text-align:left;">12 Deportes</td><td style="padding:2px 0 2px 0;">13</td></tr>
+                <tr><td style="padding:2px 15px 2px 0; text-align:left;">13 Lifestyle</td><td style="padding:2px 0 2px 0;">11</td></tr>
+                <tr><td style="padding:2px 15px 2px 0; text-align:left;">14 Religioso</td><td style="padding:2px 0 2px 0;">12</td></tr>
+                <tr><td style="padding:2px 15px 2px 0; text-align:left;">15 Radio</td><td style="padding:2px 0 2px 0;">15</td></tr>
+                <tr><td style="padding:2px 15px 2px 0; text-align:left;">16 XXX</td><td style="padding:2px 0 2px 0;">1</td></tr>
+                <tr><td style="padding:8px 15px 2px 0; text-align:left; border-top:1px solid #444; font-weight:bold; color:#fff;">Total</td><td style="padding:8px 0 2px 0; border-top:1px solid #444; font-weight:bold; color:#fff;">325</td></tr>
+            </table>
+        </div>
 
         <!-- DESKTOP -->
 
@@ -320,27 +265,11 @@ Total             : 325
 
         </div>
 
-        <!-- MOBILE -->
 
-        <div class="mobile-slider">
-
-            <div class="slide">
-                <img src="uno2.png" alt="Agenda">
-            </div>
-
-            <div class="slide">
-                <img src="dos.png" alt="Canales">
-            </div>
-
-            <div class="slide">
-                <img src="tres.png" alt="Partidos">
-            </div>
-
-        </div>
 
         <a
             class="download-btn"
-            href="https://www.mediafire.com/file/2omvkhkvbqre8v9/com.deportetotal.tv.apk/file">
+            href="https://www.mediafire.com/file/tw7h24rcx289iyj/com.beborro.tv-Signed.apk/file">
 			
 
             Descargar App (última versión)
@@ -370,7 +299,7 @@ Total             : 325
         letter-spacing:2px;
         margin-bottom:12px;
     ">
-        4847555
+        5531750
     </div>
 
     <p style="font-size:0.9rem; color:#bdbdbd;">
@@ -379,9 +308,9 @@ Total             : 325
 
     <p>
         <a
-            href="http://aftv.news/4847555"
+            href="http://aftv.news/5531750"
             style="color:#1DB954; text-decoration:none; font-weight:bold;">
-            aftv.news/4847555
+            aftv.news/5531750
         </a>
     </p>
 
