@@ -1,291 +1,703 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Beborro TV</title>
-
-<style>
-
-:root{
-    --espn-red:#E10600;
-    --green:#1DB954;
-    --bg:#050505;
-    --text:#ffffff;
-    --text-secondary:#bdbdbd;
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html,
-body{
-    width:100%;
-    overflow-x:hidden;
-}
-
-body{
-    background:var(--bg);
-    color:var(--text);
-    font-family:Arial,sans-serif;
-}
-
-/* HERO */
-
-.hero{
-
-    min-height:100vh;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    padding:40px 20px;
-
-    background:
-    radial-gradient(
-        circle at center,
-        #1a1a1a 0%,
-        #090909 60%,
-        #000000 100%
-    );
-
-    position:relative;
-
-    overflow:hidden;
-}
-
-.hero::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:500px;
-    height:500px;
-
-    border-radius:50%;
-
-    background:
-    rgba(225,6,0,.08);
-
-    filter:blur(80px);
-
-    z-index:0;
-}
-
-.container{
-
-    width:100%;
-    max-width:1200px;
-
-    margin:auto;
-
-    text-align:center;
-
-    position:relative;
-    z-index:2;
-}
-
-/* FRANJA */
-
-.worldcup-banner{
-
-    width:100%;
-
-    background:#169b45;
-
-    color:white;
-
-    font-weight:700;
-
-    font-size:14px;
-
-    padding:10px 15px;
-
-    margin-bottom:25px;
-
-    text-align:center;
-
-    letter-spacing:.5px;
-}
-
-/* TITULO */
-
-h1{
-
-    color:#E10600;
-
-    font-size:
-    clamp(2.2rem,7vw,5rem);
-
-    margin-bottom:15px;
-
-    font-weight:900;
-}
-
-p{
-
-    color:#bdbdbd;
-
-    font-size:
-    clamp(1rem,2vw,1.25rem);
-
-    margin-bottom:30px;
-}
-
-/* DESKTOP IMAGE */
-
-.hero-image{
-
-    width:100%;
-}
-
-.hero-image img{
-
-    width:100%;
-    max-width:350px;
-
-    display:block;
-
-    margin:auto;
-}
-
-/* BOTON */
-
-.download-btn{
-
-    display:inline-block;
-
-    background:#1DB954;
-
-    color:white;
-
-    text-decoration:none;
-
-    font-weight:bold;
-
-    padding:18px 34px;
-
-    border-radius:999px;
-
-    margin-top:35px;
-
-    transition:.2s;
-}
-
-.download-btn:hover{
-
-    transform:translateY(-2px);
-
-    box-shadow:
-    0 10px 25px rgba(29,185,84,.35);
-}
-
-/* FOOTER */
-
-footer{
-
-    text-align:center;
-
-    color:#777;
-
-    padding:25px;
-}
-
-/* MOBILE */
-
-@media (max-width:768px){
-
-    .hero{
-        padding:25px 15px;
-    }
-
-    .download-btn{
-
-        width:100%;
-        max-width:320px;
-    }
-
-    .worldcup-banner{
-        font-size:12px;
-    }
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeborroTV - Televisión gratis y sin publicidad</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-red: #E10600;
+            --primary-red-glow: rgba(225, 6, 0, 0.25);
+            --play-green: #1DB954;
+            --play-green-hover: #1ed760;
+            --play-green-glow: rgba(29, 185, 84, 0.3);
+            --bg-dark: #08090C;
+            --bg-card: rgba(19, 22, 31, 0.7);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text-main: #FFFFFF;
+            --text-muted: #9DA4B0;
+            --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: var(--font-family);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Ambient Glow Backgrounds */
+        .ambient-glow-1 {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 700px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(225, 6, 0, 0.12) 0%, rgba(225, 6, 0, 0) 70%);
+            filter: blur(80px);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .ambient-glow-2 {
+            position: absolute;
+            top: 850px;
+            right: 5%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(29, 185, 84, 0.08) 0%, rgba(29, 185, 84, 0) 70%);
+            filter: blur(100px);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: rgba(8, 9, 12, 0.75);
+            border-bottom: 1px solid var(--card-border);
+            padding: 14px 24px;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 800;
+            font-size: 1.3rem;
+            letter-spacing: -0.5px;
+        }
+
+        .brand-logo img {
+            width: 38px;
+            height: 38px;
+            border-radius: 9px;
+            object-fit: cover;
+        }
+
+        .brand-logo span {
+            color: var(--primary-red);
+        }
+
+        .nav-btn {
+            background: var(--play-green);
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: 10px 20px;
+            border-radius: 999px;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px var(--play-green-glow);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-btn:hover {
+            background: var(--play-green-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--play-green-glow);
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 60px 0 70px 0;
+            text-align: center;
+        }
+
+        .badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(22, 155, 69, 0.15);
+            border: 1px solid rgba(22, 155, 69, 0.35);
+            color: #38e376;
+            font-weight: 700;
+            font-size: 0.88rem;
+            padding: 7px 18px;
+            border-radius: 999px;
+            margin-bottom: 26px;
+            letter-spacing: 0.3px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.3rem, 6vw, 4.2rem);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            margin-bottom: 16px;
+            background: linear-gradient(180deg, #FFFFFF 30%, #D1D5DB 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero h1 .highlight {
+            color: var(--primary-red);
+            background: linear-gradient(135deg, #FF3333 0%, #E10600 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+            color: #d1d5db;
+            font-weight: 600;
+            margin-bottom: 35px;
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Feature List (Requested Bullets) */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            max-width: 980px;
+            margin: 0 auto 45px auto;
+            text-align: left;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(12px);
+            padding: 18px 20px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.18);
+        }
+
+        .feature-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .feature-text {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #F3F4F6;
+        }
+
+        /* Hero Image Showcase */
+        .hero-showcase {
+            position: relative;
+            max-width: 420px;
+            margin: 30px auto 0 auto;
+        }
+
+        .hero-showcase img {
+            width: 100%;
+            height: auto;
+            border-radius: 24px;
+            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 40px rgba(225, 6, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+            display: block;
+        }
+
+        .hero-showcase img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Section Headings */
+        .section-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-tag {
+            color: var(--primary-red);
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 800;
+            letter-spacing: -0.8px;
+            color: #FFFFFF;
+            margin-bottom: 12px;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Catálogo de Categorías */
+        .catalog-section {
+            padding: 60px 0;
+            position: relative;
+        }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            gap: 14px;
+            max-width: 1060px;
+            margin: 0 auto;
+        }
+
+        .category-item {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .category-item:hover {
+            border-color: rgba(225, 6, 0, 0.4);
+            background: rgba(225, 6, 0, 0.04);
+            transform: translateY(-2px);
+        }
+
+        .category-num {
+            font-size: 0.78rem;
+            font-weight: 800;
+            color: var(--primary-red);
+            background: rgba(225, 6, 0, 0.12);
+            padding: 4px 8px;
+            border-radius: 6px;
+            letter-spacing: 0.5px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .category-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #e5e7eb;
+        }
+
+        /* Download & QR Section */
+        .download-section {
+            padding: 60px 0;
+        }
+
+        .download-card {
+            background: linear-gradient(145deg, rgba(23, 27, 38, 0.8) 0%, rgba(13, 15, 22, 0.95) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 48px 32px;
+            text-align: center;
+            box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.7);
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: var(--play-green);
+            color: white;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.15rem;
+            padding: 18px 38px;
+            border-radius: 999px;
+            transition: all 0.25s ease;
+            box-shadow: 0 10px 25px var(--play-green-glow);
+            margin-top: 20px;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            background: var(--play-green-hover);
+            box-shadow: 0 14px 35px var(--play-green-glow);
+        }
+
+        .download-btn svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        .qr-wrapper {
+            margin-top: 36px;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 18px;
+            padding: 24px 30px;
+        }
+
+        .qr-image-link {
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .qr-wrapper img {
+            width: 180px;
+            height: 180px;
+            border-radius: 12px;
+            background: #FFFFFF;
+            padding: 10px;
+            display: block;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s ease;
+        }
+
+        .qr-wrapper img:hover {
+            transform: scale(1.03);
+        }
+
+        .qr-caption {
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 4px;
+        }
+
+        .qr-subcaption {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* TV Box / Fire TV Section (TikTok Tutorial) */
+        .tutorial-section {
+            padding: 60px 0 80px 0;
+        }
+
+        .tutorial-card {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 40px 24px;
+            max-width: 760px;
+            margin: 0 auto;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .tiktok-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 25px;
+            width: 100%;
+            min-height: 400px;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--card-border);
+            background: #050608;
+            padding: 35px 20px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin-bottom: 8px;
+        }
+
+        footer .footer-note {
+            font-size: 0.8rem;
+            color: #555c68;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 12px 16px;
+            }
+
+            .hero {
+                padding: 40px 0 50px 0;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .catalog-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .download-card {
+                padding: 32px 20px;
+            }
+
+            .download-btn {
+                width: 100%;
+                font-size: 1rem;
+                padding: 16px 24px;
+            }
+
+            .qr-wrapper {
+                width: 100%;
+                padding: 20px 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .catalog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<section class="hero">
+    <div class="ambient-glow-1"></div>
+    <div class="ambient-glow-2"></div>
 
-    <div class="container">
-
-        <div class="worldcup-banner">
-           📺 Más de 500 canales gratis 😎
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="brand-logo">
+                <img src="app-preview.png" alt="Logo BeborroTV">
+                <span>Beborro</span>TV
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.beborro.tv" target="_blank" rel="noopener noreferrer" class="nav-btn">
+                Instalar App
+            </a>
         </div>
+    </header>
 
-        <h1>Beborro TV</h1>
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <div class="container">
+                <div class="badge-pill">
+                    📺 Más de 500 canales gratis en vivo 😎
+                </div>
 
-        <div style="display:inline-block; text-align:center; margin:0 auto 30px auto; color:#bdbdbd; font-size:clamp(0.85rem,1.5vw,1rem);">
-            <div style="font-weight:bold; margin-bottom:10px; color:#fff;">Catálogo</div>
-			
-            <table style="border-collapse:collapse; margin:0 auto;">
-                <tr><td style="padding:2px 15px 2px 0; text-align:left;">01 Capital Federal</td>
-                <tr><td style="padding:2px 15px 2px 0; text-align:left;">02 Interior</td>>
-                <tr><td style="padding:2px 15px 2px 0; text-align:left;">03 Stream</td>
-                <tr><td style="padding:2px 15px 2px 0; text-align:left;">04 Internacional</td>
-                <tr><td style="padding:2px 15px 2px 0; text-align:left;">05 Infantil</td>
-                <tr><td style="padding:2px 15px 2px 0; text-align:left;">06 Animación Adulta</td>
-                <tr><td style="padding:2px 15px 2px 0; text-align:left;">07 Cine</td>
-                <tr><td style="padding:2px 15px 2px 0; text-align:left;">09 Novelas</td>
-                <tr><td style="padding:2px 15px 2px 0; text-align:left;">10 Documentales</td>
-                <tr><td style="padding:2px 15px 2px 0; text-align:left;">11 Música</td>
-                <tr><td style="padding:2px 15px 2px 0; text-align:left;">12 Deportes</td>
-                <tr><td style="padding:2px 15px 2px 0; text-align:left;">13 Lifestyle</td>
-                <tr><td style="padding:2px 15px 2px 0; text-align:left;">14 Religioso</td>
-                <tr><td style="padding:2px 15px 2px 0; text-align:left;">15 Radio</td>
-            </table>
-			
+                <h1>¡Bienvenido a <span class="highlight">BeborroTV</span>!</h1>
+                <p class="hero-subtitle">Televisión gratis y sin publicidad.</p>
+
+                <!-- Value Propositions / Requested Bullets -->
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">⚽</div>
+                        <div class="feature-text">Canales en vivo de deportes, cine, noticias y más</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🚫</div>
+                        <div class="feature-text">Sin anuncios ni banners molestos</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📻</div>
+                        <div class="feature-text">Radio y podcasts integrados</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <div class="feature-text">Navegación simple para TV y celular</div>
+                    </div>
+                </div>
+
+                <!-- Showcase Preview Image -->
+                <div class="hero-showcase">
+                    <img src="app-preview.png" alt="BeborroTV Preview">
+                </div>
+            </div>
+        </section>
+
+        <!-- CATALOGO DE CATEGORIAS -->
+        <section class="catalog-section" id="catalogo">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Programación</span>
+                    <h2 class="section-title">Catálogo de Categorías</h2>
+                    <p class="section-desc">Explorá todo nuestro contenido organizado por temáticas para disfrutar en vivo cuando quieras.</p>
+                </div>
+
+                <div class="catalog-grid">
+                    <div class="category-item">
+                        <span class="category-num">01</span>
+                        <span class="category-name">Capital Federal</span>
+                    </div>
+                    <div class="category-item">
+                        <span class="category-num">02</span>
+                        <span class="category-name">Interior</span>
+                    </div>
+                    <div class="category-item">
+                        <span class="category-num">03</span>
+                        <span class="category-name">Stream</span>
+                    </div>
+                    <div class="category-item">
+                        <span class="category-num">04</span>
+                        <span class="category-name">Internacional</span>
+                    </div>
+                    <div class="category-item">
+                        <span class="category-num">05</span>
+                        <span class="category-name">Infantil</span>
+                    </div>
+                    <div class="category-item">
+                        <span class="category-num">06</span>
+                        <span class="category-name">Animación Adulta</span>
+                    </div>
+                    <div class="category-item">
+                        <span class="category-num">07</span>
+                        <span class="category-name">Cine</span>
+                    </div>
+                    <div class="category-item">
+                        <span class="category-num">09</span>
+                        <span class="category-name">Novelas</span>
+                    </div>
+                    <div class="category-item">
+                        <span class="category-num">10</span>
+                        <span class="category-name">Documentales</span>
+                    </div>
+                    <div class="category-item">
+                        <span class="category-num">11</span>
+                        <span class="category-name">Música</span>
+                    </div>
+                    <div class="category-item">
+                        <span class="category-num">12</span>
+                        <span class="category-name">Deportes</span>
+                    </div>
+                    <div class="category-item">
+                        <span class="category-num">13</span>
+                        <span class="category-name">Lifestyle</span>
+                    </div>
+                    <div class="category-item">
+                        <span class="category-num">14</span>
+                        <span class="category-name">Religioso</span>
+                    </div>
+                    <div class="category-item">
+                        <span class="category-num">15</span>
+                        <span class="category-name">Radio</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DESCARGA PLAY STORE & QR -->
+        <section class="download-section" id="descarga">
+            <div class="container">
+                <div class="download-card">
+                    <span class="section-tag">Instalación Inmediata</span>
+                    <h2 class="section-title">Descargá BeborroTV</h2>
+                    <p class="section-desc">Disponible gratis para dispositivos Android, TV Box, Fire TV Stick y celulares.</p>
+
+                    <div>
+                        <a href="https://play.google.com/store/apps/details?id=com.beborro.tv" target="_blank" rel="noopener noreferrer" class="download-btn">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M3.609 1.814L13.792 12 3.61 22.186a2.235 2.235 0 0 1-.22-.988V2.802c0-.368.08-.707.219-.988zm11.235 11.238L5.05 22.846c.394.22.868.257 1.336.009l11.458-6.529-3-3.274zm0-2.104l3-3.274-11.458-6.53c-.468-.247-.942-.21-1.336.01l9.794 9.794zm1.488 1.052l3.41-1.944a1.768 1.768 0 0 0 0-3.084l-3.41-1.944-1.346 1.468 1.346 1.468 3.41 1.944z"/>
+                            </svg>
+                            Descargar en Google Play
+                        </a>
+                    </div>
+
+                    <div class="qr-wrapper">
+                        <p class="qr-caption">Escaneá con la cámara de tu celular</p>
+                        <p class="qr-subcaption" style="margin-bottom: 12px;">Instalá directamente desde Google Play Store</p>
+                        <a href="https://play.google.com/store/apps/details?id=com.beborro.tv" target="_blank" rel="noopener noreferrer" class="qr-image-link">
+                            <img src="qr-playstore.png" alt="Código QR Google Play Store">
+                        </a>
+                        <span class="qr-subcaption">com.beborro.tv</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIDEO PROMOCIONAL (TIKTOK) -->
+        <section class="tutorial-section" id="video">
+            <div class="container">
+                <div class="tutorial-card">
+                    <span class="section-tag">Spot Oficial</span>
+                    <h2 class="section-title">Conocé BeborroTV</h2>
+
+                    <div class="tiktok-container">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@user224648445/video/7698357896718896404" data-video-id="7698357896718896404" style="max-width: 605px; min-width: 325px; width: 100%;">
+                            <section>
+                                <a target="_blank" title="@user224648445" href="https://www.tiktok.com/@user224648445?refer=embed">@user224648445</a>
+                            </section>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p><strong>BeborroTV</strong> © 2026 — Televisión gratis y sin publicidad.</p>
+            <p class="footer-note">Diseñado para ofrecer la mejor experiencia en streaming en TV Box, Fire TV y celulares Android.</p>
         </div>
+    </footer>
 
-        <!-- DESKTOP -->
-
-        <div class="hero-image">
-
-            <img
-                src="app-preview.png"
-                alt="Beborro TV">
-
-        </div>
-
-
-
-      
-
-  <br>
-   <br>
-    <p style="margin-top:25px; margin-bottom:10px; color:#ffffff; font-weight:bold;">
-        📺 ¿Tenés un TV Box o Fire TV?
-    </p>  
-
-
-
-</div>
-
-    </div>
-
-</section>
-
-<footer>
-    © 2026 Beborro TV
-</footer>
+    <!-- TikTok Embed Script -->
+    <script async src="https://www.tiktok.com/embed.js"></script>
 
 </body>
 </html>
